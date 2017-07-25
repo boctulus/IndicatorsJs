@@ -1,4 +1,75 @@
 
+	// Copia un pedazo de un array
+	// @param array
+	// @param int posicion de inicio
+	// @param int posicion de finalizacion
+	// @return array
+	function copy(data,ini,end){
+		var arr = [];	
+		for (var i=ini;i<end;i++)
+			arr.push(data[i]);
+		
+		return arr;	
+	}
+			
+	// @param array de objetos
+	// @param string property
+	// @return array 
+	function dim(array,prop){		
+		var res = [];
+			
+		for (var i=0;i<array.length;i++)
+			res.push(array[i][prop]);			
+			
+		return res;	
+	}						
+	
+		
+	// Mirada hacia atras 
+	// @param array de datos de entrada
+	// @param periodo
+	// @return un escalar
+	function barsAgo(arr,n){
+		return arr[arr.length-n];
+	}		
+	
+	
+	// uso:
+	// testTimming(function(){var x= 2/2020; });
+	function testTimming(f){	
+		var t0 = performance.now();
+		f();
+		var t1 = performance.now();
+		console.log((t1 - t0) + " ms")
+	}				
+
+	function isNumeric(n) {
+		return !isNaN(parseFloat(n)) && isFinite(n);
+	}	
+
+	
+	// @param arreglo
+	function avg(arr){
+		var acc = 0;
+		for (var i=0; i<arr.length; i++)
+			acc += arr[i];
+		
+		return acc/arr.length;
+	}	
+	
+	// recorta un arreglo eliminando los primeros n-elementos
+	// @param arreglo
+	// @param longitud maxima
+	function trimmer (arr, lon) {
+		var res=[];
+		
+		for (var i=arr.length-lon; i<arr.length; i++)
+			res.push (arr[i]);
+		
+		return res;
+	}	
+	
+
 /*
 	Basic Math functions
 */
@@ -374,11 +445,7 @@
 		return res;	
 	}		
 
-	
-	function isNumber(n) {
-		return !isNaN(parseFloat(n)) && isFinite(n);
-	}
-	
+		
 	// a+b
 	function sum(a,b){		
 		if (Array.isArray(a) && Array.isArray(b))
